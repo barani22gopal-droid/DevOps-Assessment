@@ -110,7 +110,7 @@ docker ps=Check the container
  
 7. Login to Docker Hub 
 
-docker login -u <username> 
+docker login -u username
 
 username: 
 
