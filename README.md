@@ -110,11 +110,12 @@ docker ps=Check the container
  
 7. Login to Docker Hub 
 
-docker login 
+docker login -u <username> 
 
 username: 
 
 password: 
+
 docker tag nginximage baranigopal/ nginximage:v1 = Tag the Image 
 
 docker push baranigopal / nginximage:v1= Push Image to Docker Hub 
