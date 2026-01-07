@@ -50,8 +50,7 @@ server {
     server_name localhost;  
     
     root /var/www/mywebsite; 
-    
-   index index.html; 
+    index index.html; 
    
     location / { 
     
