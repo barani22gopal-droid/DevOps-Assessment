@@ -21,9 +21,8 @@ sudo chmod -R 755 /var/www/mywebsite
 3. Create Website HTML File 
 nano /var/www/mywebsite/index.html 
 open 
-<h1>Welcome to Barani's Website</h1> 
-
-    <p>Hosted using NGINX on Linux</p> 
+    <h4>Welcome to DevOps</h4> 
+    <h1><center></center>I am Barani Gopal</h1> </center>
 
 4. Create NGINX Server Block 
 sudo nano /etc/nginx/sites-available/nginx 
