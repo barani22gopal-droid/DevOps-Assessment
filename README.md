@@ -89,11 +89,15 @@ after the DevOps-Assessment repo name show in window
 git add . 
 git commit -m“Project 1” 
 git push  
-git pull   
+git pull
+giy status
 
 Git repo url:
 https://github.com/barani22gopal-droid/DevOps-Assessment.git
 
+<img width="1915" height="962" alt="image" src="https://github.com/user-attachments/assets/39b73be0-2b9c-46c0-bf99-94d4264353fd" />
+
+Output :
 • Proof that the site is accessible via the browser. 
 
  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b5115b14-cd6d-4ab4-b272-1fe8a8966ab0" />
