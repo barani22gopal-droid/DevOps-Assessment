@@ -44,18 +44,12 @@ sudo nano /etc/nginx/sites-available/nginx
 open 
 
 server { 
-
     listen 8087; 
-    
     server_name localhost;  
-    
     root /var/www/mywebsite; 
     index index.html; 
-   
-    location / { 
-    
-    try_files $uri $uri/ =404; 
-    
+   location / { 
+   try_files $uri $uri/ =404;   
     } 
 
 } 
