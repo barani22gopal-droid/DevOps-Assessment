@@ -1,4 +1,4 @@
-Docker Practical Assessment 
+                                                     **Docker Practical Assessment **
  
 Project 1: Application Containerization 
 
@@ -154,16 +154,19 @@ https://github.com/barani22gopal-droid/DevOps-Assessment.git
 
 Output :
 
+
 • Proof that the site is accessible via the browser. 
 
 
  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b5115b14-cd6d-4ab4-b272-1fe8a8966ab0" />
+ 
 
 
 • Proof that Dockerfile  of building the image. 
 
 
 <img width="1918" height="551" alt="image" src="https://github.com/user-attachments/assets/1d782b59-51ab-4d9b-8232-9514fd6704b7" />
+
 
  
  
