@@ -168,6 +168,140 @@ Output :
 <img width="1918" height="551" alt="image" src="https://github.com/user-attachments/assets/1d782b59-51ab-4d9b-8232-9514fd6704b7" />
 
 
+                                                                                Project 2 
+                                                                                Data Persistence 
+
+Objective Demonstrate how to manage stateful data in a containerized environment to prevent data loss during container lifecycles 1. Using NGINX : 
+
+1.Create Project Directory: 
+
+sudo mkdir -p /var/www/assessment  
+
+cd /var/www/assessment 
+
+ls 
+
+2.Create Python Application 
+
+sudo nano myapp.py 
+
+open 
+
+import time 
+
+from datetime import datetime 
+
+LOG_FILE = "/tmp/log.txt"  
+
+while True: 
+
+    with open(LOG_FILE, "a") as f: 
+
+        f.write(“Hi all ,I am barni gopal {datetime.now()}\n") 
+
+print(“All the best”) 
+
+time.sleep(5) 
+
+3.Create Dockerfile 
+
+sudo nano Dockerfile 
+
+FROM python:3.11-slim = Use an official Python base image 
+
+WORKDIR /app = Set working directory inside the container 
+
+COPY . . = Copy the current folder contents into the container 
+
+ENTRYPOINT ["python", "myapp.py"] = Run your Python script 
+
+4. after we using to create image,volume and container 
+
+docker build –t openpy . = Build Docker Image 
+
+docker volume create barani = Create Docker Volume Storage 
+
+5.docker exec -it conpython1 cat /tmp/log.txt 
+
+docker volume ls =volume li sudo docker run -d --name conpython1 -v barani:/tmp openpy 
+
+ = Run Container with Volume 
+
+Output: 
+
+Container first run  
+
+<img width="1911" height="412" alt="Screenshot 2026-01-08 124259" src="https://github.com/user-attachments/assets/b5f25afd-4820-4a7e-bc20-e5bbb2d0f5a3" />
+
+ 
+
+Remove the container then only it run  
+
+sudo docker stop conpython1 = stop the container  
+
+sudo docker rm -f conpython1= remove the container 
+
+6.We are creating second container : 
+
+docker exec -it conpython2 cat /tmp/log.txt 
+
+ 
+
+Output: 
+
+<img width="1914" height="898" alt="Screenshot 2026-01-08 124914" src="https://github.com/user-attachments/assets/d7adfe4e-ffd7-4373-a675-1ede5d5be860" />
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+docker logs conpython2 
+
+<img width="1917" height="766" alt="Screenshot 2026-01-08 140627" src="https://github.com/user-attachments/assets/40edcf30-da43-400e-a30f-78f67e05641a" />
+
+ 
+
+ 
+
+7.Docker hub tag and push  
+
+docker tag openpy baranigopal/openpy:v1 = tag 
+
+docker push baranigopal/openpy:v1 =push to docker hub 
+
+Output : 
+
+<img width="1891" height="496" alt="Screenshot 2026-01-08 135814" src="https://github.com/user-attachments/assets/39cda9d7-a827-4715-a435-b3cdcd35be47" />
+ 
+ 
+
+8.Git and Github Repo: 
+
+git pull origin main 
+
+git status 
+
+git add . 
+
+git commit –m “project 2 completed” 
+
+git push origin main 
+
+Output: 
+
+<img width="1919" height="971" alt="Screenshot 2026-01-08 141051" src="https://github.com/user-attachments/assets/c879fec2-3490-4518-bcb0-dab3a3a123d9" />
+
+
+
  
  
  
