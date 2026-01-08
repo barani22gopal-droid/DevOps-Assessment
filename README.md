@@ -307,6 +307,176 @@ Output:
 
 
 
+Project 3:  
+
+Multi-Container Networking 
+
+Objective 
+
+The objective of this project is to demonstrate multi-container communication using Docker. Two separate containers are created: 
+
+Container A (Backend Service) running a Redis server 
+
+Container B (Client) acting as a Redis client 
+
+Both containers communicate with each other over a custom Docker network using service discovery (DNS), where the container name is used as the hostname instead of IP addresses. 
+
+Creates a project workspace to organize both service and client containers. 
+
+1.Backend Service (Container A – Server) 
+
+sudo mkdir project3 
+
+cd project3 
+
+sudo nano backService= Create backend folder Container A 
+
+cd backService 
+
+sudo nano Dockerfile = Create Dockerfile Container A 
+
+open 
+
+redis-server-container: 
+
+Dockerfile 
+
+FROM redis:latest 
+LABEL maintainer="I am Rani" 
+LABEL description="Redis server containerized " 
+
+ 
+
+ 
+
+docker build -t server . = Build server image 
+
+ 
+
+ 
+
+2.Client Container (Container B – Client) 
+
+sudo mkdir Client = Create folder Container B 
+
+cd Client 
+
+sudo nano Dockerfile = Create Dockerfile Container B 
+
+open 
+
+redis-cli-container: 
+
+Dockerfile 
+
+FROM redis:alpine 
+
+ 
+ENTRYPOINT ["redis-cli"] 
+
+ 
+
+docker build -t client . 
+
+docker network create redis-net 
+
+docker run -d --name contserver --network redis-net server 
+
+docker run -it --rm --network redis-net client -h contserver -p 6379 
+
+docker build -t client . =Build client image 
+
+3. Create a Custom Docker Network 
+
+Isolates containers from the default bridge network 
+
+ 
+
+docker network create redis-net 
+
+cd backService =After we Create the Container 
+
+docker run -d --name contserver --network redis-net server = Run Backend Service Container 
+
+Inside the client container, Redis successfully connects to the backend service using the hostname contserver. 
+
+docker run -it --rm --network redis-net client -h contserver -p 6379 = Run Client Container and Connect 
+
+Output: 
+
+ <img width="1872" height="292" alt="Screenshot 2026-01-08 164939" src="https://github.com/user-attachments/assets/edb79ed3-c45d-4b78-99ba-8ca06b41c28e" />
+
+
+Docker compose : 
+
+docker-compose  --version =Check Docker & Compose 
+
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose =Downloaded docker-compose Manually we can change the version 
+
+Make it executable 
+
+sudo nano docker-compose.yml 
+
+ 
+
+version: "3.9" 
+services: 
+  redis-server-container: 
+    image: redis_server_image:latest 
+    container_name: redis-server-container 
+    networks: 
+      - redis-net 
+  redis-cli-container: 
+    image: redis_cli_image:latest 
+    container_name: redis-cli-container 
+    depends_on: 
+      - redis-server-container 
+    networks: 
+      - redis-net 
+    command: ["sleep", "infinity"] 
+networks: 
+  redis-net: 
+    driver: bridge 
+
+docker-compose up -d 
+
+sudo chmod +x /usr/local/bin/docker-compose = Adds execute permission to the Docker Compose binary 
+
+which docker-compose= Locate docker-compose Binary 
+
+source ~/.bashrc = Reload Shell Configuration 
+
+docker-compose up –d = Start Containers Using Docker Compose 
+
+docker exec -it redis-cli-container redis-cli -h contserver = Connect to Redis After Compose r 
+
+ <img width="1860" height="244" alt="image" src="https://github.com/user-attachments/assets/599aef0f-2905-44f3-abef-0f9288e83b2a" />
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
  
  
  
