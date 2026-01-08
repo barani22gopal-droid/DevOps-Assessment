@@ -168,10 +168,15 @@ Output :
 <img width="1918" height="551" alt="image" src="https://github.com/user-attachments/assets/1d782b59-51ab-4d9b-8232-9514fd6704b7" />
 
 
+
+
+
+
                                                                                 Project 2 
                                                                                 Data Persistence 
 
-Objective Demonstrate how to manage stateful data in a containerized environment to prevent data loss during container lifecycles 1. Using NGINX : 
+Objective Demonstrate how to manage stateful data in a containerized environment to prevent data loss during container lifecycles 
+Using NGINX : 
 
 1.Create Project Directory: 
 
