@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  redis-server-container:
+    image: server:latest
+    container_name: contserver 
+    networks:
+      - redis-net
+
+  redis-cli-container:
+    image: client:latest
+    container_name: redis-cli-container
+    depends_on:
+      - redis-server-container
+    networks:
+      - redis-net
+    entrypoint: ["sleep"]
+    command: ["infinity"]
+    tty: true
+    stdin_open: true
+networks:
+  redis-net:
+    driver: bridge
+
