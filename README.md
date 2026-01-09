@@ -34,7 +34,7 @@ nano /var/www/mywebsite/index.html
 open 
     <h4>Welcome to DevOps</h4> 
     
-    <h1><center></center>I am Barani Gopal</h1> </center>
+    <h1><center>I am Barani Gopal</h1> </center>
     
 
 4. Create NGINX Server Block 
